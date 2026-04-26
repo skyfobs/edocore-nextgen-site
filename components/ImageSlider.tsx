@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function ImageSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -9,17 +10,17 @@ export default function ImageSlider() {
     {
       title: 'Welcome to EduCore Institute',
       description: 'Excellence in Education and Training',
-      bgColor: 'bg-gradient-to-r from-[#003366] to-[#004488]'
+      image: '/slider-1.jpg'
     },
     {
       title: 'Professional Courses',
       description: 'Industry-Leading Training Programs',
-      bgColor: 'bg-gradient-to-r from-[#004488] to-[#003366]'
+      image: '/slider-2.jpg'
     },
     {
       title: 'Global Opportunities',
       description: 'Study Abroad Programs Available',
-      bgColor: 'bg-gradient-to-r from-[#002244] to-[#003366]'
+      image: '/slider-3.jpg'
     }
   ];
 
@@ -43,16 +44,25 @@ export default function ImageSlider() {
   };
 
   return (
-    <div className="relative h-[500px] overflow-hidden">
+    <div className="relative h-[600px] overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentSlide ? 'opacity-100' : 'opacity-0'
-          } ${slide.bgColor}`}
+          }`}
         >
-          <div className="container mx-auto px-4 h-full flex items-center justify-center">
-            <div className="text-center text-white">
+          <Image
+            src={slide.image}
+            alt={slide.title}
+            fill
+            className="object-cover"
+            priority={index === 0}
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 container mx-auto px-4 flex items-center justify-center">
+            <div className="text-center text-white z-10">
               <h1 className="text-5xl md:text-6xl font-bold mb-4">{slide.title}</h1>
               <p className="text-xl md:text-2xl">{slide.description}</p>
               <div className="mt-8">
