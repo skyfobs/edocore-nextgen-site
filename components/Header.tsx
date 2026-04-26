@@ -10,32 +10,33 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#003366] text-white shadow-lg sticky top-0 z-50 w-full">
-      <nav className="w-full px-8 py-3 relative">
+    <header className="bg-white text-black shadow-lg sticky top-0 z-50 w-full">
+      <nav className="w-full px-8 py-5 relative">
         <div className="flex items-center justify-between relative w-full">
           <Link href="/" className="flex-shrink-0">
             <Image 
               src="/educore-logo.png" 
               alt="Educore NextGen Logo" 
-              width={240} 
-              height={84}
-              className="h-24 w-auto object-contain"
+              width={220} 
+              height={77}
+              className="h-20 w-auto object-contain"
               priority
+              unoptimized
             />
           </Link>
 
           <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
-              <Link href="/" className="hover:text-gray-200 transition-colors font-medium">
+              <Link href="/" className="hover:text-gray-600 transition-colors font-medium text-lg">
                 Home
               </Link>
               
-              <Link href="/about" className="hover:text-gray-200 transition-colors font-medium">
+              <Link href="/about" className="hover:text-gray-600 transition-colors font-medium text-lg">
                 About Us
               </Link>
 
               <div className="relative group">
                 <button 
-                  className="hover:text-gray-200 transition-colors font-medium flex items-center py-2"
+                  className="hover:text-gray-600 transition-colors font-medium text-lg flex items-center py-2"
                   onClick={() => setIsCoursesOpen(!isCoursesOpen)}
                 >
                   Courses
@@ -68,17 +69,17 @@ export default function Header() {
                 </div>
               </div>
 
-              <Link href="/partners" className="hover:text-gray-200 transition-colors font-medium">
+              <Link href="/partners" className="hover:text-gray-600 transition-colors font-medium text-lg">
                 Partners
               </Link>
 
-              <Link href="/study-abroad" className="hover:text-gray-200 transition-colors font-medium">
+              <Link href="/study-abroad" className="hover:text-gray-600 transition-colors font-medium text-lg">
                 Study Abroad
               </Link>
 
               <div className="relative group">
                 <button 
-                  className="hover:text-gray-200 transition-colors font-medium flex items-center py-2"
+                  className="hover:text-gray-600 transition-colors font-medium text-lg flex items-center py-2"
                   onClick={() => setIsResourcesOpen(!isResourcesOpen)}
                 >
                   Resources
@@ -99,7 +100,7 @@ export default function Header() {
                 </div>
               </div>
 
-              <Link href="/contact" className="hover:text-gray-200 transition-colors font-medium">
+              <Link href="/contact" className="hover:text-gray-600 transition-colors font-medium text-lg">
                 Contact Us
               </Link>
             </div>
@@ -117,13 +118,13 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-3">
-              <Link href="/" className="hover:text-gray-200 transition-colors">Home</Link>
-              <Link href="/about" className="hover:text-gray-200 transition-colors">About Us</Link>
+              <Link href="/" className="hover:text-gray-600 transition-colors">Home</Link>
+              <Link href="/about" className="hover:text-gray-600 transition-colors">About Us</Link>
               
               <div>
                 <button 
                   onClick={() => setIsCoursesOpen(!isCoursesOpen)}
-                  className="hover:text-gray-200 transition-colors flex items-center w-full"
+                  className="hover:text-gray-600 transition-colors flex items-center w-full"
                 >
                   Courses
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,23 +133,23 @@ export default function Header() {
                 </button>
                 {isCoursesOpen && (
                   <div className="ml-4 mt-2 space-y-2">
-                    <Link href="/courses/finance-management" className="block hover:text-gray-200">Finance & Management</Link>
-                    <Link href="/courses/health-safety" className="block hover:text-gray-200">Health & Safety Training</Link>
-                    <Link href="/courses/ai-consultancy" className="block hover:text-gray-200">AI Consultancy</Link>
-                    <Link href="/courses/cloud-consultancy" className="block hover:text-gray-200">Cloud Consultancy</Link>
-                    <Link href="/courses/german-language" className="block hover:text-gray-200">German Language</Link>
-                    <Link href="/courses/multimedia" className="block hover:text-gray-200">Multimedia</Link>
+                    <Link href="/courses/finance-management" className="block hover:text-gray-600">Finance & Management</Link>
+                    <Link href="/courses/health-safety" className="block hover:text-gray-600">Health & Safety Training</Link>
+                    <Link href="/courses/ai-consultancy" className="block hover:text-gray-600">AI Consultancy</Link>
+                    <Link href="/courses/cloud-consultancy" className="block hover:text-gray-600">Cloud Consultancy</Link>
+                    <Link href="/courses/german-language" className="block hover:text-gray-600">German Language</Link>
+                    <Link href="/courses/multimedia" className="block hover:text-gray-600">Multimedia</Link>
                   </div>
                 )}
               </div>
 
-              <Link href="/partners" className="hover:text-gray-200 transition-colors">Partners</Link>
-              <Link href="/study-abroad" className="hover:text-gray-200 transition-colors">Study Abroad</Link>
+              <Link href="/partners" className="hover:text-gray-600 transition-colors">Partners</Link>
+              <Link href="/study-abroad" className="hover:text-gray-600 transition-colors">Study Abroad</Link>
               
               <div>
                 <button 
                   onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-                  className="hover:text-gray-200 transition-colors flex items-center w-full"
+                  className="hover:text-gray-600 transition-colors flex items-center w-full"
                 >
                   Resources
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -157,13 +158,13 @@ export default function Header() {
                 </button>
                 {isResourcesOpen && (
                   <div className="ml-4 mt-2 space-y-2">
-                    <Link href="/resources/blog" className="block hover:text-gray-200">Blog</Link>
-                    <Link href="/resources/case-study" className="block hover:text-gray-200">Case Study</Link>
+                    <Link href="/resources/blog" className="block hover:text-gray-600">Blog</Link>
+                    <Link href="/resources/case-study" className="block hover:text-gray-600">Case Study</Link>
                   </div>
                 )}
               </div>
 
-              <Link href="/contact" className="hover:text-gray-200 transition-colors">Contact Us</Link>
+              <Link href="/contact" className="hover:text-gray-600 transition-colors">Contact Us</Link>
             </div>
           </div>
         )}
