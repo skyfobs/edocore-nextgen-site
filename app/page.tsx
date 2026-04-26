@@ -91,41 +91,56 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
+          {/* Section Header */}
           <h2 className="text-4xl font-bold text-center mb-12 text-[#003366]">
             Our Courses
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {/* Course Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <CourseCard
               title="Finance & Management"
-              description="Comprehensive courses in finance and business management"
+              description="Master strategic leadership and financial analytical tools for modern corporate environments."
               link="/courses/finance-management"
+              category="Professional"
+              image="/course-finance.jpg"
             />
             <CourseCard
               title="Health & Safety Training"
-              description="Professional health and safety certification programs"
+              description="Comprehensive certification for workplace safety standards and risk assessment management."
               link="/courses/health-safety"
+              category="Compliance"
+              image="/course-health.jpg"
             />
             <CourseCard
               title="AI Consultancy"
-              description="Expert training in artificial intelligence and machine learning"
+              description="Leverage machine learning and artificial intelligence to transform business operations and insights."
               link="/courses/ai-consultancy"
+              category="Technology"
+              image="/course-ai.jpg"
             />
             <CourseCard
               title="Cloud Consultancy"
-              description="Cloud computing and infrastructure management courses"
+              description="Architecting scalable and secure cloud infrastructure for modern enterprise agility."
               link="/courses/cloud-consultancy"
+              category="Enterprise"
+              image="/course-cloud.jpg"
             />
             <CourseCard
               title="German Language"
-              description="Learn German from beginner to advanced levels"
+              description="Accelerated language immersion program focusing on business proficiency and cultural fluency."
               link="/courses/german-language"
+              category="Linguistics"
+              image="/course-german.jpg"
             />
             <CourseCard
               title="Multimedia"
-              description="Creative multimedia design and production training"
+              description="Advanced digital design, video production, and interactive storytelling for the modern web."
               link="/courses/multimedia"
+              category="Creative"
+              image="/course-multimedia.jpg"
             />
           </div>
         </div>
@@ -151,20 +166,35 @@ export default function Home() {
   );
 }
 
-function CourseCard({ title, description, link }: { title: string; description: string; link: string }) {
+function CourseCard({ title, description, link, category, image }: { title: string; description: string; link: string; category: string; image: string }) {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#003366]">
-      <h3 className="text-2xl font-bold mb-3 text-[#003366]">{title}</h3>
-      <p className="text-gray-600 mb-4">{description}</p>
-      <Link
-        href={link}
-        className="text-[#003366] font-semibold hover:underline inline-flex items-center"
-      >
-        Learn More
-        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </Link>
+    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl group">
+      <div className="h-48 overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          width={400}
+          height={192}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          unoptimized
+        />
+      </div>
+      <div className="p-6">
+        <span className="inline-block bg-[#88b4ff]/10 text-[#014488] text-xs font-medium px-2 py-1 rounded mb-3">
+          {category}
+        </span>
+        <h3 className="text-2xl font-semibold text-[#001e40] mb-2">{title}</h3>
+        <p className="text-gray-600 text-base mb-6 line-clamp-2">{description}</p>
+        <Link
+          href={link}
+          className="inline-flex items-center text-[#003366] font-semibold hover:underline transition-all"
+        >
+          Learn More
+          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Link>
+      </div>
     </div>
   );
 }
