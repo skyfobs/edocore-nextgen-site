@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Header() {
@@ -12,9 +13,16 @@ export default function Header() {
     <header className="bg-[#003366] text-white shadow-lg sticky top-0 z-50 w-full">
       <nav className="w-full px-8 py-3 relative">
         <div className="flex items-center justify-between relative w-full">
-          <div className="w-40 h-14 bg-white/10 rounded flex items-center justify-center flex-shrink-0">
-            <span className="text-sm">Logo Placeholder</span>
-          </div>
+          <Link href="/" className="flex-shrink-0">
+            <Image 
+              src="/educore-logo.png" 
+              alt="Educore NextGen Logo" 
+              width={240} 
+              height={84}
+              className="h-24 w-auto object-contain"
+              priority
+            />
+          </Link>
 
           <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
               <Link href="/" className="hover:text-gray-200 transition-colors font-medium">
