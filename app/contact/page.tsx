@@ -2,6 +2,7 @@
 
 import type { Metadata } from 'next';
 import { useState } from 'react';
+import { contactInfo, businessHours } from '@/config/contact';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -138,7 +139,9 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <p className="font-semibold text-gray-700">Email</p>
-                    <p className="text-gray-600">info@educore.com</p>
+                    <a href={contactInfo.email.link} className="text-gray-600 hover:text-[#003366] transition-colors">
+                      {contactInfo.email.display}
+                    </a>
                   </div>
                 </div>
 
@@ -148,7 +151,9 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <p className="font-semibold text-gray-700">Phone</p>
-                    <p className="text-gray-600">+1 234 567 8900</p>
+                    <a href={contactInfo.phone.link} className="text-gray-600 hover:text-[#003366] transition-colors">
+                      {contactInfo.phone.display}
+                    </a>
                   </div>
                 </div>
 
@@ -159,7 +164,9 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <p className="font-semibold text-gray-700">Address</p>
-                    <p className="text-gray-600">[Add your address here]</p>
+                    <p className="text-gray-600">
+                      {contactInfo.address.street}, {contactInfo.address.city}, {contactInfo.address.state}, {contactInfo.address.country}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -168,9 +175,9 @@ export default function ContactPage() {
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-bold mb-4 text-[#003366]">Office Hours</h3>
               <div className="space-y-2 text-gray-700">
-                <p><span className="font-semibold">Monday - Friday:</span> 9:00 AM - 6:00 PM</p>
-                <p><span className="font-semibold">Saturday:</span> 10:00 AM - 4:00 PM</p>
-                <p><span className="font-semibold">Sunday:</span> Closed</p>
+                <p>{businessHours.weekdays}</p>
+                <p>{businessHours.saturday}</p>
+                <p>{businessHours.sunday}</p>
               </div>
             </div>
           </div>
