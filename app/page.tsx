@@ -1,5 +1,6 @@
 import ImageSlider from '@/components/ImageSlider';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -11,10 +12,82 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-center mb-12 text-[#003366]">
             Welcome to EduCore Institute
           </h2>
-          <p className="text-lg text-center max-w-3xl mx-auto text-gray-700 mb-8">
-            We are a leading educational institute dedicated to providing high-quality courses and training programs. 
-            Our mission is to empower students with the knowledge and skills needed to succeed in today's competitive world.
-          </p>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Educore NextGen institute, is an intellectual destination that draws learners from all over the world. 
+                Established to provide practical, real-world education and entrepreneurial development — we are consciously 
+                focusing our efforts on building on our strengths and consolidating our achievements.
+              </p>
+              
+              <p className="text-lg text-gray-700 leading-relaxed">
+                From academic discoveries to athletic records, from artistic creations to scientific breakthroughs, 
+                our students define our success in every way.
+              </p>
+              
+              <ul className="space-y-4 text-gray-700">
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Regular evaluations of all programs by a dedicated academic board</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Integrated IT support for effective online and offline learning</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>A dedicated Research Committee to promote research culture in the institution</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>World-renowned and acclaimed faculties for each program to instil knowledge and multi-culture prominence in our students</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Toastmasters club activities to strengthen communication and leadership skills</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Professional Skills Development Programs starting from Freshman to the Senior levels to hone student skills in communication, analysis, and leadership</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Teaching effectiveness committee to improve learning & teaching</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-[#003366] mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Community services committee for opportunities to serve the community through various activities</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="relative h-[600px] bg-gray-200 rounded-lg overflow-hidden shadow-xl">
+              <Image 
+                src="/welcome-image.jpg" 
+                alt="EduCore Institute" 
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          </div>
         </div>
       </section>
 
