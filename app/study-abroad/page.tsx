@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Study Abroad Programs - EduCore Institute',
@@ -27,6 +28,67 @@ export default function StudyAbroadPage() {
             <p className="font-semibold text-[#003366]">
               We currently provide study abroad assistance for the following destinations:
             </p>
+          </div>
+        </div>
+
+        {/* Country Images Row */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* Germany Image */}
+            <div>
+              <div className="relative h-48 rounded-lg overflow-hidden shadow-lg border-2 border-[#003366]">
+                <Image 
+                  src="/countries/germany.jpg" 
+                  alt="Germany" 
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-center mt-3 font-semibold text-[#003366] text-lg">Germany</p>
+            </div>
+
+            {/* UK Image */}
+            <div>
+              <div className="relative h-48 rounded-lg overflow-hidden shadow-lg border-2 border-[#003366]">
+                <Image 
+                  src="/countries/uk.jpg" 
+                  alt="United Kingdom" 
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-center mt-3 font-semibold text-[#003366] text-lg">United Kingdom</p>
+            </div>
+
+            {/* Australia Image */}
+            <div>
+              <div className="relative h-48 rounded-lg overflow-hidden shadow-lg border-2 border-[#003366]">
+                <Image 
+                  src="/countries/australia.jpg" 
+                  alt="Australia" 
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-center mt-3 font-semibold text-[#003366] text-lg">Australia</p>
+            </div>
+
+            {/* Austria Image */}
+            <div>
+              <div className="relative h-48 rounded-lg overflow-hidden shadow-lg border-2 border-[#003366]">
+                <Image 
+                  src="/countries/austria.jpg" 
+                  alt="Austria" 
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-center mt-3 font-semibold text-[#003366] text-lg">Austria</p>
+            </div>
           </div>
         </div>
 
