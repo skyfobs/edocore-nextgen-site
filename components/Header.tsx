@@ -161,8 +161,8 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-3">
-              <Link href="/" className="hover:text-gray-600 transition-colors">Home</Link>
-              <Link href="/about" className="hover:text-gray-600 transition-colors">About Us</Link>
+              <Link href="/" className="hover:text-gray-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+              <Link href="/about" className="hover:text-gray-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
               
               <div>
                 <button 
@@ -176,18 +176,18 @@ export default function Header() {
                 </button>
                 {isCoursesOpen && (
                   <div className="ml-4 mt-2 space-y-2">
-                    <Link href="/courses/finance-management" className="block hover:text-gray-600">Finance & Management</Link>
-                    <Link href="/courses/health-safety" className="block hover:text-gray-600">Health & Safety Training</Link>
-                    <Link href="/courses/ai-consultancy" className="block hover:text-gray-600">AI Consultancy</Link>
-                    <Link href="/courses/cloud-consultancy" className="block hover:text-gray-600">Cloud Consultancy</Link>
-                    <Link href="/courses/german-language" className="block hover:text-gray-600">German Language</Link>
-                    <Link href="/courses/multimedia" className="block hover:text-gray-600">Multimedia</Link>
+                    <Link href="/courses/finance-management" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>Finance & Management</Link>
+                    <Link href="/courses/health-safety" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>Health & Safety Training</Link>
+                    <Link href="/courses/ai-consultancy" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>AI Consultancy</Link>
+                    <Link href="/courses/cloud-consultancy" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>Cloud Consultancy</Link>
+                    <Link href="/courses/german-language" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>German Language</Link>
+                    <Link href="/courses/multimedia" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>Multimedia</Link>
                   </div>
                 )}
               </div>
 
-              <Link href="/partners" className="hover:text-gray-600 transition-colors">Partners</Link>
-              <Link href="/study-abroad" className="hover:text-gray-600 transition-colors">Study Abroad</Link>
+              <Link href="/partners" className="hover:text-gray-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Partners</Link>
+              <Link href="/study-abroad" className="hover:text-gray-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Study Abroad</Link>
               
               <div>
                 <button 
@@ -201,13 +201,13 @@ export default function Header() {
                 </button>
                 {isResourcesOpen && (
                   <div className="ml-4 mt-2 space-y-2">
-                    <Link href="/resources/blog" className="block hover:text-gray-600">Blog</Link>
-                    <Link href="/resources/case-study" className="block hover:text-gray-600">Case Study</Link>
+                    <Link href="/resources/blog" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
+                    <Link href="/resources/case-study" className="block hover:text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>Case Study</Link>
                   </div>
                 )}
               </div>
 
-              <Link href="/contact" className="hover:text-gray-600 transition-colors">Contact Us</Link>
+              <Link href="/contact" className="hover:text-gray-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
             </div>
           </div>
         )}
