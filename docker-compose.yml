@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: educore-nextgen-website
     restart: unless-stopped
+    user: "1001:1001"  # Run as nextjs user (matches Dockerfile)
     ports:
       - "3000:3000"
     environment:
