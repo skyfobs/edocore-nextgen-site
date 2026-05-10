@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  educore-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: educore-nextgen-website
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    volumes:
+      # Mount database directory to persist data
+      - ./data:/app/data
+      # Optional: Mount for logs
+      - ./logs:/app/logs
+    networks:
+      - educore-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "com.educore.description=EduCore NextGen Website"
+      - "com.educore.version=1.0"
+
+networks:
+  educore-network:
+    driver: bridge
+
+volumes:
+  educore-data:
+    driver: local
