@@ -44,3 +44,11 @@ next-env.d.ts
 /data
 *.db
 *.db-journal
+
+# Nginx
+nginx/logs/
+*.log
+
+# SSL Certificates (Let's Encrypt)
+certbot/conf/
+certbot/www/
