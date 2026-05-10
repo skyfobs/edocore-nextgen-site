@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# database
+/data
+*.db
+*.db-journal
+
+# Nginx
+nginx/logs/
+*.log
+
+# SSL Certificates (Let's Encrypt)
+certbot/conf/
+certbot/www/

@@ -1,0 +1,65 @@
+# Development Nginx Configuration (HTTP Only - No SSL)
+# Rename to educorenextgen.conf for local testing
+
+upstream nextjs_backend {
+    server educore-web:3000;
+    keepalive 32;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name localhost educorenextgen.local;
+
+    # Logging
+    access_log /var/log/nginx/educorenextgen.access.log;
+    error_log /var/log/nginx/educorenextgen.error.log;
+
+    # Root directory
+    root /var/www/html;
+
+    # Proxy to Next.js application
+    location / {
+        proxy_pass http://nextjs_backend;
+        proxy_http_version 1.1;
+        
+        # Proxy headers
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+        
+        # Disable caching for development
+        proxy_cache_bypass $http_upgrade;
+        proxy_no_cache $http_upgrade;
+    }
+
+    # Static files
+    location /_next/static/ {
+        proxy_pass http://nextjs_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    # API routes
+    location /api/ {
+        proxy_pass http://nextjs_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # Health check
+    location /api/health {
+        proxy_pass http://nextjs_backend;
+        access_log off;
+    }
+}
