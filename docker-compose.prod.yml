@@ -23,13 +23,13 @@ services:
     networks:
       - educore-network
     deploy:
-      resources:
-        limits:
-          cpus: '1.0'
-          memory: 512M
-        reservations:
-          cpus: '0.5'
-          memory: 256M
+      #resources:
+      #  limits:
+      #    cpus: '1.0'
+      #    memory: 512M
+      #  reservations:
+      #    cpus: '0.5'
+      #    memory: 256M
       restart_policy:
         condition: on-failure
         delay: 5s
