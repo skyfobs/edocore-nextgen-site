@@ -19,7 +19,7 @@ export const socialMedia = {
   facebook: 'https://www.facebook.com/profile.php?id=61588942257234',
   twitter: 'https://twitter.com/educore',
   linkedin: 'https://linkedin.com/company/educore',
-  instagram: 'https://instagram.com/educore',
+  instagram: 'https://www.instagram.com/educorenextgen?igsh=M2pkazc5eDEzcmZx',
   youtube: 'https://youtube.com/@educore'
 };
 
