@@ -1,7 +1,7 @@
 export const contactInfo = {
   phone: {
-    display: '+971 564579563',
-    link: 'tel:+971564579563'
+    display: '+971 581623555',
+    link: 'https://wa.me/+971581623555'
   },
   email: {
     display: 'info@educorenextgen.com',
