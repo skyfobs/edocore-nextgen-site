@@ -8,7 +8,7 @@ export const contactInfo = {
     link: 'mailto:info@educorenextgen.com'
   },
   address: {
-    street: '4201-01 Churchill Executive Tower, Business Bay',
+    street: '4101-02 Churchill Executive Tower, Business Bay',
     city: 'Dubai',
     state: 'Dubai',
     country: 'UAE'
