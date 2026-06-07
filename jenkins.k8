@@ -37,7 +37,7 @@ spec:
   }
 
   environment {
-    IMAGE = "registry.skyfobscloud.com/educore-website:${BUILD_NUMBER}"
+    IMAGE = "registry.skyfobscloud.com/educorenextgen-website:${BUILD_NUMBER}"
   }
 
   stages {
