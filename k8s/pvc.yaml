@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: educore-data-pvc
+  namespace: educore
+  labels:
+    app: educore-nextgen
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  # Optional: Specify storage class
+  # storageClassName: standard
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: educore-logs-pvc
+  namespace: educore
+  labels:
+    app: educore-nextgen
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  # Optional: Specify storage class
+  # storageClassName: standard
