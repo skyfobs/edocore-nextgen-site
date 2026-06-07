@@ -23,6 +23,8 @@ spec:
         app: educorenextgen-website
         version: v1
     spec:
+      imagePullSecrets:
+      - name: regcred
       # Security context with fsGroup for Longhorn volumes
       securityContext:
         runAsUser: 1001
@@ -32,7 +34,7 @@ spec:
       
       containers:
         - name: educorenextgen-website
-          image: registry.skyfobscloud.com/educorenextgen-website:latest
+          image: registry.skyfobscloud.com/educorenextgen-website:7
           imagePullPolicy: Always
           
           ports:
