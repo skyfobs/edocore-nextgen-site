@@ -10,8 +10,7 @@ metadata:
 spec:
   serviceAccountName: jenkins-agent
 
-  nodeSelector:
-    jenkins-agent: "true"
+
 
   containers:
   - name: kaniko
