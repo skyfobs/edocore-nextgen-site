@@ -1,0 +1,11 @@
+# Kubernetes sensitive files
+secret.yaml
+
+# Backup files
+*.bak
+*.backup
+
+# Temporary files
+*.tmp
+*.swp
+*~

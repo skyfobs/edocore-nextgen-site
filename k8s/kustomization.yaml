@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: educore
+
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - secret.yaml
+  - pvc.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - hpa.yaml
+  - cert-issuer.yaml
+
+# Common labels for all resources
+commonLabels:
+  app: educore-nextgen
+  managed-by: kustomize
+
+# Image configurations
+images:
+  - name: your-registry/educore-website
+    newName: your-registry/educore-website
+    newTag: latest
+
+# ConfigMap generator (alternative to configmap.yaml)
+# configMapGenerator:
+#   - name: educore-config
+#     literals:
+#       - NODE_ENV=production
+#       - PORT=3000
+
+# Secret generator (alternative to secret.yaml)
+# secretGenerator:
+#   - name: educore-secrets
+#     literals:
+#       - TELEGRAM_BOT_TOKEN=your-token
+#       - TELEGRAM_CHAT_ID=your-chat-id

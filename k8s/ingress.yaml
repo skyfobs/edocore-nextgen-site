@@ -1,0 +1,46 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: educorenextgen-website-ingress
+  namespace: educorenextgen
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+    nginx.ingress.kubernetes.io/real-ip-header: "CF-Connecting-IP"
+    
+spec:
+  ingressClassName: nginx
+  # tls:
+  #   - hosts:
+  #       - educorenextgen.com
+  #       - www.educorenextgen.com
+  #     secretName: educorenextgen-tls-cert
+  
+  rules:
+    # Main domain
+    - host: educorenextgen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: educorenextgen-website-service
+                port:
+                  number: 80
+    
+    # WWW subdomain
+    - host: www.educorenextgen.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: educorenextgen-website-service
+                port:
+                  number: 80
