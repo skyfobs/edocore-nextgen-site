@@ -7,7 +7,7 @@
 FROM node:20-alpine AS deps
 
 # Install dependencies only when needed
-RUN apk add --no-cache libc6-compat python3 make g++ sqlite-dev
+RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ RUN npm ci --ignore-scripts
 FROM node:20-alpine AS builder
 
 # Install build dependencies
-RUN apk add --no-cache libc6-compat python3 make g++ sqlite-dev
+RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
@@ -32,9 +32,6 @@ COPY --from=deps /app/node_modules ./node_modules
 
 # Copy application source
 COPY . .
-
-# Rebuild sqlite3 for Alpine Linux ARM64
-RUN npm rebuild sqlite3 --build-from-source
 
 # Set environment to production
 ENV NODE_ENV=production
@@ -48,18 +45,11 @@ RUN npm run build
 # ===================================
 FROM node:20-alpine AS runner
 
-# Install sqlite runtime dependencies
-RUN apk add --no-cache sqlite
-
 WORKDIR /app
 
 # Create non-root user for security
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
-
-# Create data directory for database with correct permissions
-RUN mkdir -p /app/data && \
-    chown -R nextjs:nodejs /app/data
 
 # Set environment
 ENV NODE_ENV=production
@@ -71,9 +61,6 @@ ENV HOSTNAME="0.0.0.0"
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# Copy node_modules with compiled sqlite3 bindings from builder
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 
 # Switch to non-root user
 USER nextjs
