@@ -8,8 +8,18 @@ data:
   PORT: "3000"
   HOSTNAME: "0.0.0.0"
   NEXT_TELEMETRY_DISABLED: "1"
-  MONGODB_URI: "mongodb://educore-db-0.educore-db.educorenextgen.svc.cluster.local:27017"
+  MONGODB_URI: "mongodb://educore-user:educore-password@educore-db-0.educore-db.educorenextgen.svc.cluster.local:27017"
   MONGODB_DB: "educorenextgen-website"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: educorenextgen-website-secrets
+  namespace: educorenextgen
+type: Opaque
+data:
+  TELEGRAM_BOT_TOKEN: ODUyMzUwNjQ5MTpBQUZVN3lzYjRPd2daUUEtSGVSMmlYQXlwLXE5YktvY2tVVQ==
+  TELEGRAM_CHAT_ID: LTUwODczNTA3NzY=
 ---
 apiVersion: v1
 kind: Service
@@ -56,6 +66,15 @@ spec:
         app: educorenextgen-website
         version: v1
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - k8-nl-worker-4
       imagePullSecrets:
       - name: regcred
       securityContext:
@@ -64,7 +83,7 @@ spec:
       
       containers:
         - name: educorenextgen-website
-          image: registry.skyfobscloud.com/educorenextgen-website:7
+          image: registry.skyfobscloud.com/educorenextgen-website:14
           imagePullPolicy: Always
           
           ports:
@@ -218,7 +237,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: educorenextgen-website
-  minReplicas: 2
+  minReplicas: 1
   maxReplicas: 4
   metrics:
     - type: Resource
