@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: educorenextgen
-  labels:
-    app: educorenextgen
-    environment: production
