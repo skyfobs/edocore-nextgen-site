@@ -8,7 +8,7 @@ export const contactInfo = {
     link: 'mailto:info@educorenextgen.com'
   },
   address: {
-    street: '4101-02 Churchill Executive Tower, Business Bay',
+    street: 'OF0105, Arif & Bintoak Building, AL Karama',
     city: 'Dubai',
     state: 'Dubai',
     country: 'UAE'
@@ -16,11 +16,11 @@ export const contactInfo = {
 };
 
 export const socialMedia = {
-  facebook: 'https://www.facebook.com/profile.php?id=61588942257234',
-  twitter: 'https://twitter.com/educore',
+  facebook: 'https://www.facebook.com/share/18qik3i7sC',
+  twitter: 'https://x.com/EDUCORENEX',
   linkedin: 'https://linkedin.com/company/educore',
   instagram: 'https://www.instagram.com/educorenextgen?igsh=M2pkazc5eDEzcmZx',
-  youtube: 'https://youtube.com/@educore'
+  youtube: 'https://youtube.com/@educorenextgen?si=GN3bEpigksABrbu-'
 };
 
 export const businessHours = {
