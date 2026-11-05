@@ -60,9 +60,9 @@ export default function Header() {
             <Image 
               src="/educore-logo.png" 
               alt="Educore NextGen Logo" 
-              width={220} 
-              height={77}
-              className="h-20 w-auto object-contain"
+              width={320} 
+              height={112}
+              className="h-28 w-auto object-contain"
               priority
               unoptimized
             />
